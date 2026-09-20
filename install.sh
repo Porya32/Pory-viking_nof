@@ -5,7 +5,7 @@ set -e
 clear
 
 echo "=========================================="
-echo "       PORY 777000 - TERMUX INSTALLER"
+echo "       PORY nofuzgar - TERMUX INSTALLER"
 echo "=========================================="
 echo
 
@@ -44,7 +44,7 @@ def get_session():
     print()
 
     session = getpass.getpass(
-        "Session را وارد کنید: "
+        "اوت را وارد کنید: "
     ).strip()
 
     if not session:
