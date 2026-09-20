@@ -9,24 +9,20 @@ echo "       PORY 777000 - TERMUX INSTALLER"
 echo "=========================================="
 echo
 
-echo "[1/5] Updating Termux..."
+echo "[1/4] Updating Termux..."
 pkg update -y
 pkg upgrade -y
 
 echo
-echo "[2/5] Installing Python..."
+echo "[2/4] Installing Python..."
 pkg install python -y
 
 echo
-echo "[3/5] Updating pip..."
-python -m pip install --upgrade pip
-
-echo
-echo "[4/5] Installing SPlusthon..."
+echo "[3/4] Installing SPlusthon..."
 python -m pip install --upgrade splusthon
 
 echo
-echo "[5/5] Creating main.py..."
+echo "[4/4] Creating main.py..."
 
 cat > "$HOME/main.py" <<'PYTHON'
 import asyncio
@@ -48,11 +44,12 @@ def get_session():
     print()
 
     session = getpass.getpass(
-        "اوت را وارد کنید: "
+        "Session را وارد کنید: "
     ).strip()
 
     if not session:
-        print("\n❌ اوت وارد نشده است.")
+        print()
+        print("❌ اوت وارد نشده است.")
         sys.exit(1)
 
     return session
@@ -80,7 +77,7 @@ async def message_handler(event):
 
         print()
         print("=" * 60)
-        print("کد جدید:🧾 ")
+        print("📩 کد تایید")
         print("=" * 60)
         print(text)
         print("=" * 60)
@@ -132,14 +129,13 @@ async def main():
         await client.run_until_disconnected()
 
     except KeyboardInterrupt:
-        print("\n\n🛑 برنامه متوقف شد.")
+        print()
+        print("🛑 برنامه متوقف شد.")
 
     except Exception as e:
-        print(
-            "\n❌ خطا:",
-            type(e).__name__,
-            e
-        )
+        print()
+        print("❌ خطا:")
+        print(type(e).__name__, e)
 
 
 if __name__ == "__main__":
@@ -152,7 +148,7 @@ echo "✅ Installation completed"
 echo "=========================================="
 echo
 
-echo "🚀 Starting PORY 777000..."
+echo "🚀 Starting PORY nofuzgar..."
 echo
 
 python "$HOME/main.py"
